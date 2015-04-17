@@ -53,7 +53,6 @@ namespace DemoCRPushModel.Dao
             finally
             {
                 conn.Dispose();
-                conn.Dispose();
             }
 
             GC.SuppressFinalize(this);
