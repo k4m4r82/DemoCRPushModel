@@ -24,8 +24,11 @@ namespace DemoCRPushModel
 
         private void LoadReport()
         {
-            ISiswaDao dao = new SiswaDao();
-            var recordSiswa = dao.GetAll();
+            IList<Siswa> recordSiswa = null;
+            using (var dao = new SiswaDao())
+            {
+                recordSiswa = dao.GetAll();
+            }
 
             var reportSiswa = new CrSiswa();
             reportSiswa.Database.Tables["Siswa"].SetDataSource(recordSiswa);
